@@ -1,0 +1,120 @@
+<article class="pa3 pa5-ns" data-name="slab-stat">
+  <h1 class="f1 lh-title">Covid-19 ~ <i>world live data</i></h1>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">New Confirmed</dd>
+    <dd class="f3 f2-ns b ml0">{{ global.NewConfirmed | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">Total Confirmed</dd>
+    <dd class="f3 f2-ns b ml0">
+      {{ global.TotalConfirmed | number: "1.0-0" }}
+    </dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">New Deaths</dd>
+    <dd class="f3 f2-ns b ml0">{{ global.NewDeaths | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">Total Deaths</dd>
+    <dd class="f3 f2-ns b ml0">{{ global.TotalDeaths | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">New Recovered</dd>
+    <dd class="f3 f2-ns b ml0">{{ global.NewRecovered | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib">
+    <dd class="f6 f5-ns b ml0">Total Recovered</dd>
+    <dd class="f3 f2-ns b ml0">
+      {{ global.TotalRecovered | number: "1.0-0" }}
+    </dd>
+  </dl>
+</article>
+
+<article data-name="article-full-bleed-background">
+  <div
+    class="cf"
+    style="
+      background: url(https://elglobal.es/wp-content/uploads/2020/03/GettyImages-1207303151.jpg)
+        no-repeat center center fixed;
+      background-size: cover;
+    "
+  >
+    <div class="fl pa3 pa4-ns bg-white black-70 measure-narrow f3 times">
+      <div class="pa4 lh-copy">
+        <h1 class="f3 fw3 db dark-pink">Latest News</h1>
+      </div>
+      <div class="pa4 lh-copy" *ngFor="let article of news">
+        <a
+          class="f4 fw1 db dark-gray no-underline underline-hover"
+          href="{{ article.url }}"
+          target="_blank"
+          >{{ article.title }}...
+          <img src="{{ article.urlToImage }}" />
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="pa4 black-80">
+  <form action="sign-up_submit" method="get" accept-charset="utf-8">
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+      <legend class="ph0 mh0 fw6 clip">Sign Up</legend>
+      <div class="mt3">
+        <label class="db fw19 lh-copy f55" for="country-name"
+          >Search Data by Country</label
+        >
+        <input
+          class="pa2 input-reset ba bg-transparent w-50 measure"
+          type="text"
+          name="country-name"
+          id="country-name"
+          (input)="valueCountry = $event.target.value"
+          #countryName
+        />
+      </div>
+    </fieldset>
+    <div class="mt3">
+      <input
+        class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f19"
+        type="submit"
+        value="Search"
+        (click)="onClick($event)"
+      />
+    </div>
+  </form>
+</article>
+
+<article class="pa3 pa5-ns" data-name="slab-stat" *ngIf="country">
+  <h1 class="f1 lh-title">
+    Live data from {{ country.Country }}, {{ country.CountryCode }}
+  </h1>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">New Confirmed</dd>
+    <dd class="f3 f2-ns b ml0">{{ country.NewConfirmed | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">Total Confirmed</dd>
+    <dd class="f3 f2-ns b ml0">
+      {{ country.TotalConfirmed | number: "1.0-0" }}
+    </dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">New Deaths</dd>
+    <dd class="f3 f2-ns b ml0">{{ country.NewDeaths | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">Total Deaths</dd>
+    <dd class="f3 f2-ns b ml0">{{ country.TotalDeaths | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib mr5">
+    <dd class="f6 f5-ns b ml0">New Recovered</dd>
+    <dd class="f3 f2-ns b ml0">{{ country.NewRecovered | number: "1.0-0" }}</dd>
+  </dl>
+  <dl class="dib">
+    <dd class="f6 f5-ns b ml0">Total Recovered</dd>
+    <dd class="f3 f2-ns b ml0">
+      {{ country.TotalRecovered | number: "1.0-0" }}
+    </dd>
+  </dl>
+</article>

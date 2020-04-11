@@ -1,0 +1,6 @@
+@import "tachyons/css/tachyons.css";
+
+* {
+  font-family: "Open Sans", sans-serif;
+  /*background-color: rgb(252, 249, 249);*/
+}
