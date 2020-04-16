@@ -19,7 +19,6 @@ const headers = new HttpHeaders({
   providedIn: "root",
 })
 export class NewsService {
-  apiKey = "f329f514a76c40d79c95f91e8e07977b";
   url = `http://newsapi.org/v2/everything?q=coronavirus&sortBy=relevancy&language=en`;
 
   constructor(private http: HttpClient) {}
